@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Postazione 1 - Staffetta</title>
+    <title>Sede Lupi - Serta Lupi</title>
     <style>
         table {
             width: 100%;
@@ -71,9 +71,8 @@
 
     <script>
         function recordStartTime(team) {
-            const startTime = new Date().toLocaleTimeString();
-            alert('Tempo di partenza registrato per Squadra ' + team + ': ' + startTime);
-            // Qui puoi aggiungere la logica per salvare il tempo, ad esempio su Firebase.
+            const currentTime = new Date().toLocaleTimeString();  // Ottiene l'orario corrente
+            document.getElementById('time-squadra-' + team).innerHTML = currentTime;  // Mostra l'orario nella cella corrispondente
         }
     </script>
 </body>
