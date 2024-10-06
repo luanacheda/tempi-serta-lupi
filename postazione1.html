@@ -8,14 +8,11 @@
     <style>
         /* Applica il font Segoe UI a tutto il sito */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Arial', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Tabella che si adatta allo schermo */
         table {
-            width: 100%; /* La tabella occupa il 100% della larghezza dello schermo */
+            width: 100%;
             border-collapse: collapse;
             margin: 20px auto;
         }
@@ -24,7 +21,7 @@
             border: 1px solid black;
             padding: 10px;
             text-align: center;
-            width: 25%; /* Ogni colonna occupa il 25% della larghezza della tabella */
+            width: 150px;
         }
 
         button {
@@ -43,27 +40,6 @@
         .controls {
             text-align: center;
             margin: 20px;
-        }
-
-        /* Media query per schermi piccoli (ad esempio telefoni) */
-        @media (max-width: 768px) {
-            th, td {
-                font-size: 14px; /* Riduce la dimensione del testo su schermi più piccoli */
-                padding: 8px;
-            }
-
-            button {
-                padding: 5px 8px; /* Ridimensiona i bottoni */
-                font-size: 12px; /* Font più piccolo per i bottoni */
-            }
-
-            h1 {
-                font-size: 18px; /* Riduce la dimensione del titolo */
-            }
-
-            table {
-                font-size: 12px; /* Riduce la dimensione complessiva della tabella */
-            }
         }
     </style>
 </head>
