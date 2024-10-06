@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postazione 1 - Staffetta</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Postazione 1 - Partenza</h1>
+    <table>
+        <tr>
+            <th>Squadra</th>
+            <th>Partenza</th>
+        </tr>
+        <tr>
+            <td>Squadra 1</td>
+            <td><button onclick="recordStartTime(1)">Partenza</button></td>
+        </tr>
+        <tr>
+            <td>Squadra 2</td>
+            <td><button onclick="recordStartTime(2)">Partenza</button></td>
+        </tr>
+        <!-- Aggiungi altre squadre -->
+    </table>
+
+    <script>
+        function recordStartTime(team) {
+            const startTime = new Date().toLocaleTimeString();
+            alert('Tempo di partenza registrato per Squadra ' + team + ': ' + startTime);
+            // Qui puoi aggiungere la logica per salvare il tempo, ad esempio su Firebase.
+        }
+    </script>
+</body>
+</html>
