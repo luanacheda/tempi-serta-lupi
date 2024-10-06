@@ -13,17 +13,24 @@
             padding: 0;
         }
 
+        /* Aggiunge scrolling orizzontale per dispositivi mobili */
+        .table-container {
+            overflow-x: auto;
+            margin: 20px;
+        }
+
         /* Tabella che si adatta allo schermo */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px auto;
+            margin: 0 auto;
         }
 
         th, td {
             border: 1px solid black;
             padding: 10px;
             text-align: center;
+            /* Rimuove larghezza fissa delle celle */
         }
 
         button {
@@ -47,7 +54,6 @@
         /* Media query per schermi piccoli (ad esempio telefoni) */
         @media (max-width: 768px) {
             th, td {
-                width: auto; /* Larghezza automatica per adattarsi a schermi piccoli */
                 font-size: 14px; /* Riduce la dimensione del testo */
                 padding: 8px; /* Riduce l'imbottitura */
             }
@@ -70,27 +76,30 @@
 <body>
     <h1>Sede Lupi - Decodifica e partenza discesista</h1>
 
-    <table id="time-table">
-        <tr>
-            <th>Sestena</th>
-            <th>Inizio decodifica</th>
-            <th>Fine decodifica</th>
-            <th>Partenza discesista</th>
-        </tr>
-        <tr>
-            <td>01</td>
-            <td id="time-squadra-1"><button onclick="recordStartTime(1)">Via!</button></td>
-            <td id="time-squadra-2"><button onclick="recordStartTime(2)">Stop</button></td>
-            <td id="time-squadra-3"><button onclick="recordStartTime(3)">Via!</button></td>
-        </tr>
-        <tr>
-            <td>02</td>
-            <td id="time-squadra-4"><button onclick="recordStartTime(4)">Via!</button></td>
-            <td id="time-squadra-5"><button onclick="recordStartTime(5)">Stop</button></td>
-            <td id="time-squadra-6"><button onclick="recordStartTime(6)">Via!</button></td>
-        </tr>
-        <!-- Aggiungi altre righe... -->
-    </table>
+    <!-- Aggiungi un contenitore per permettere lo scrolling della tabella -->
+    <div class="table-container">
+        <table id="time-table">
+            <tr>
+                <th>Sestena</th>
+                <th>Inizio decodifica</th>
+                <th>Fine decodifica</th>
+                <th>Partenza discesista</th>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td id="time-squadra-1"><button onclick="recordStartTime(1)">Via!</button></td>
+                <td id="time-squadra-2"><button onclick="recordStartTime(2)">Stop</button></td>
+                <td id="time-squadra-3"><button onclick="recordStartTime(3)">Via!</button></td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td id="time-squadra-4"><button onclick="recordStartTime(4)">Via!</button></td>
+                <td id="time-squadra-5"><button onclick="recordStartTime(5)">Stop</button></td>
+                <td id="time-squadra-6"><button onclick="recordStartTime(6)">Via!</button></td>
+            </tr>
+            <!-- Aggiungi altre righe... -->
+        </table>
+    </div>
 
     <div class="controls">
         <button onclick="resetTimes()">Resetta Tempi</button>
