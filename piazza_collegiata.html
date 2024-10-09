@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serta Lupi - Piazza Collegiata</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+            width: 150px;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .controls {
+            text-align: center;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Piazza Collegiata - Arrivo discesista e partenza alpinista</h1>
+
+    <table id="time-table">
+        <tr>
+            <th>Sestena</th>
+            <th>Arrivo discesista</th>
+            <th>Partenza alpinista</th>
+        </tr>
+        <tr>
+            <td>01</td>
+            <td id="time-squadra-1"><button onclick="recordStartTime(1)">Stop</button></td>
+            <td id="time-squadra-2"><button onclick="recordStartTime(2)">Via!</button></td>
+        </tr>
+        <tr>
+            <td>02</td>
+            <td id="time-squadra-5"><button onclick="recordStartTime(5)">Stop</button></td>
+            <td id="time-squadra-6"><button onclick="recordStartTime(6)">Via!</button></td>
+        </tr>
+        <tr>
+            <td>03</td>
+            <td id="time-squadra-8"><button onclick="recordStartTime(8)">Stop</button></td>
+            <td id="time-squadra-9"><button onclick="recordStartTime(9)">Via!</button></td>
+        </tr>
+        <tr>
+            <td>04</td>
+            <td id="time-squadra-11"><button onclick="recordStartTime(11)">Stop</button></td>
+            <td id="time-squadra-12"><button onclick="recordStartTime(12)">Via!</button></td>
+        </tr>
+        <tr>
+            <td>05</td>
+            <td id="time-squadra-14"><button onclick="recordStartTime(14)">Stop</button></td>
+            <td id="time-squadra-15"><button onclick="recordStartTime(15)">Via!</button></td>
+        </tr>
+        <tr>
+            <td>06</td>
+            <td id="time-squadra-17"><button onclick="recordStartTime(17)">Stop</button></td>
+            <td id="time-squadra-18"><button onclick="recordStartTime(18)">Via!</button></td>
+        </tr>
+        <tr>
+            <td>07</td>
+            <td id="time-squadra-20"><button onclick="recordStartTime(20)">Stop</button></td>
+            <td id="time-squadra-21"><button onclick="recordStartTime(21)">Via!</button></td>
+        </tr>
+        <tr>
+            <td>08</td>
+            <td id="time-squadra-23"><button onclick="recordStartTime(23)">Stop</button></td>
+            <td id="time-squadra-24"><button onclick="recordStartTime(24)">Via!</button></td>
+        </tr>
+        <tr>
+            <td>09</td>
+            <td id="time-squadra-26"><button onclick="recordStartTime(26)">Stop</button></td>
+            <td id="time-squadra-27"><button onclick="recordStartTime(27)">Via!</button></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td id="time-squadra-29"><button onclick="recordStartTime(29)">Stop</button></td>
+            <td id="time-squadra-30"><button onclick="recordStartTime(30)">Via!</button></td>
+        </tr>
+        <!-- Altre righe... -->
+    </table>
+
+    <div class="controls">
+        <button onclick="resetTimes()">Resetta Tempi</button>
+        <button onclick="exportTable()">Esporta Tabella</button>
+    </div>
+
+    <script>
+        function recordStartTime(team) {
+            const currentTime = new Date().toLocaleTimeString();
+            document.getElementById('time-squadra-' + team).innerHTML = currentTime;
+            saveTime(team, currentTime);
+        }
+
+        function saveTime(team, time) {
+            let savedTimes = JSON.parse(localStorage.getItem('savedTimes')) || {};
+            savedTimes['time-squadra-' + team] = time;
+            localStorage.setItem('savedTimes', JSON.stringify(savedTimes));
+        }
+
+        function loadSavedTimes() {
+            let savedTimes = JSON.parse(localStorage.getItem('savedTimes')) || {};
+            for (let key in savedTimes) {
+                if (savedTimes.hasOwnProperty(key)) {
+                    document.getElementById(key).innerHTML = savedTimes[key];
+                }
+            }
+        }
+
+        function resetTimes() {
+            if (confirm("Sei sicuro di voler resettare tutti i tempi?")) {
+                localStorage.removeItem('savedTimes');
+                location.reload();
+            }
+        }
+
+        function exportTable() {
+            let table = document.getElementById("time-table");
+            let rows = table.rows;
+            let csvContent = "";
+
+            for (let i = 0; i < rows.length; i++) {
+                let row = [];
+                let cols = rows[i].querySelectorAll("td, th");
+                for (let j = 0; j < cols.length; j++) {
+                    row.push(cols[j].innerText);
+                }
+                csvContent += row.join(",") + "\n";
+            }
+
+            let blob = new Blob([csvContent], { type: 'text/csv' });
+            let link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'tempi_staffetta.csv';
+            link.click();
+        }
+
+        window.onload = loadSavedTimes;
+    </script>
+</body>
+</html>
