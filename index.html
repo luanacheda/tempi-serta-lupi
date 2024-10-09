@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tempi Serta Lupi</title>
+    <title>Tool Tempi Serta Lupi</title>
     <style>
         :root {
             --primary-color: #007BFF;
             --hover-color: #0056b3;
+            --visited-color: #4A90E2;
             --text-color: white;
         }
 
@@ -24,7 +25,14 @@
             padding: 20px;
             background-color: var(--primary-color);
             color: var(--text-color);
-            margin-bottom: 40px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+            color: #333;
+            font-size: 24px;
         }
 
         .postazione-list {
@@ -33,10 +41,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 20px;
         }
 
         .postazione-list li {
-            margin: 10px 0;
+            margin: 15px 0;
         }
 
         .postazione-list a {
@@ -44,27 +53,35 @@
             font-size: 20px;
             background-color: var(--primary-color);
             color: var(--text-color);
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 25px;
+            border-radius: 8px;
             display: inline-block;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .postazione-list a:hover {
             background-color: var(--hover-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .postazione-list a:visited {
+            background-color: var(--visited-color);
         }
 
         /* Media Queries per dispositivi mobili */
         @media (max-width: 600px) {
             .postazione-list a {
                 font-size: 16px;
-                padding: 8px 16px;
+                padding: 10px 18px;
             }
         }
     </style>
 </head>
 <body>
-    <h1>Serta Lupi - Postazioni</h1>
+    <h1>Tool Tempi Serta Lupi</h1>
+    <h2>Postazioni</h2>
     <ul class="postazione-list">
         <li><a href="sede_lupi.html">Sede Lupi</a></li>
         <li><a href="piazza_collegiata.html">Piazza Collegiata</a></li>
