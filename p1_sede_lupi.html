@@ -13,6 +13,8 @@
             --via-hover-color: #218838;
             --stop-color: #dc3545;
             --stop-hover-color: #c82333;
+            --resetta-color: #ffc107;
+            --resetta-hover-color: #e0a800;
             --text-color: white;
         }
 
@@ -59,13 +61,22 @@
             background-color: var(--stop-hover-color);
         }
 
-        /* Pulsanti "Esporta Tabella" e "Resetta Tempi" (Blu) */
-        .esporta, .resetta {
+        /* Pulsanti "Esporta Tabella" (Blu) */
+        .esporta {
             background-color: var(--primary-color);
         }
 
-        .esporta:hover, .resetta:hover {
+        .esporta:hover {
             background-color: var(--hover-color);
+        }
+
+        /* Pulsante "Resetta Tempi" (Giallo) */
+        .resetta {
+            background-color: var(--resetta-color);
+        }
+
+        .resetta:hover {
+            background-color: var(--resetta-hover-color);
         }
 
         .controls {
