@@ -3,43 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tool Tempi Staffetta</title>
+    <title>Tempi Mini Serta</title>
     <style>
+        :root {
+            --primary-color: #007BFF;
+            --hover-color: #0056b3;
+            --text-color: white;
+        }
+
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
         }
+
         h1 {
             text-align: center;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            margin-bottom: 40px;
         }
+
         .postazione-list {
             list-style-type: none;
-            text-align: center;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
         .postazione-list li {
             margin: 10px 0;
         }
+
         .postazione-list a {
             text-decoration: none;
             font-size: 20px;
-            background-color: #007BFF;
-            color: white;
+            background-color: var(--primary-color);
+            color: var(--text-color);
             padding: 10px 20px;
             border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
         }
+
         .postazione-list a:hover {
-            background-color: #0056b3;
+            background-color: var(--hover-color);
+        }
+
+        /* Media Queries per dispositivi mobili */
+        @media (max-width: 600px) {
+            .postazione-list a {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
         }
     </style>
 </head>
 <body>
     <h1>Postazioni Staffetta</h1>
     <ul class="postazione-list">
-        <li><a href="postazione1.html">Sede Lupi</a></li>
-        <li><a href="postazione2.html">Piazza Collegiata</a></li>
-        <li><a href="postazione3.html">Castel Grande</a></li>
-        <li><a href="postazione4.html">Torre Murata</a></li>
-        <li><a href="postazione5.html">Passerella Piscine</a></li>
-        <li><a href="postazione6.html">Scuole Medie 1</a></li>
+        <li><a href="sede_lupi.html">Sede Lupi</a></li>
+        <li><a href="piazza_collegiata.html">Piazza Collegiata</a></li>
+        <li><a href="castel_grande.html">Castel Grande</a></li>
+        <li><a href="torre_murata.html">Torre Murata</a></li>
+        <li><a href="passerella_piscine.html">Passerella Piscine</a></li>
+        <li><a href="scuole_medie.html">Scuole Medie 1</a></li>
         <!-- Aggiungi altre postazioni qui -->
     </ul>
 </body>
